@@ -1,20 +1,24 @@
 require("dotenv").config();
+
 const Bot = require("./Bot/Bot");
+const express = require("express");
+const router = require("./Routes/router");
 
 
-let number = 1;
+const app = express();
+const PORT = 4000;
 
-//Bot();
 
-console.log(process.env.PASSWORD)
 
-setInterval(async () => {
+app.use(express.json());
 
-    number++;
+app.use(router);
 
-    //await Bot();
-    
-    console.log(`Chamadas: ${number}`);
-    console.log(`Fim: ${number}`)
-}, 75000)
 
+
+
+app.listen(PORT, () => {
+
+    console.log(`-> Servidor rodando, PORT ${PORT}!`);
+    console.log(`-> A cada 75 segundos o BOT faz suas operações`);
+})

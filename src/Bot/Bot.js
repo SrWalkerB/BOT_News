@@ -16,4 +16,18 @@ async function Bot() {
 }
 
 
+let number = 0;
+
+setInterval(async () => {
+
+    //await Bot();
+    
+    number++;
+    console.log(`Chamadas: ${number}`);
+    console.log(`Fim: ${number}`)
+
+}, 75000)
+
+
+
 module.exports = Bot;
