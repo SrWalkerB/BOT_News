@@ -20,13 +20,13 @@ let number = 0;
 
 setInterval(async () => {
 
-    //await Bot();
+    await Bot();
     
     number++;
     console.log(`Chamadas: ${number}`);
     console.log(`Fim: ${number}`)
 
-}, 75000)
+}, 60000)
 
 
 

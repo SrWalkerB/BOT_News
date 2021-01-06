@@ -1,7 +1,10 @@
+const NewsControllers = require("../../Controllers/NewsControllers");
+const knexDatabase = require("../../Database/Config/knexConfigDatabase");
 
 const adrenaline = async (page) => {
 
-    await page.goto('https://adrenaline.com.br/');
+    const site = "https://adrenaline.com.br/";
+    await page.goto(site);
 
 
     //Seacher and Return news
@@ -25,12 +28,16 @@ const adrenaline = async (page) => {
 
     console.log("-> Adrenaline")
     
-    adrenaline_news.map((result, index) => {
+    adrenaline_news.map( async (result, index) => {
 
         console.log(`${index} = ${result.notice}.  ${result.data}`);
+
+        await NewsControllers.create_News(result.notice);
+
     }) 
 
     console.log();
+
 
     return adrenaline_news;
 }
@@ -58,9 +65,10 @@ const techpowerUp = async (page) => {
     console.log();
     console.log("-> TechpowerUP");
 
-    techpowerUp_notice.map((result, index) => {
+    techpowerUp_notice.map(async (result, index) => {
 
         console.log(`${index} = ${result}`);
+        await NewsControllers.create_News(result);
     })
 
     console.log();
