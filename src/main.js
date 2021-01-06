@@ -1,5 +1,6 @@
 
 const puppeteer = require('puppeteer');
+<<<<<<< HEAD
 
 
 async function bot() {
@@ -44,3 +45,22 @@ async function bot() {
 
 
 bot();
+=======
+const SitesControllers = require('./Controllers/SitesControllers')
+
+
+async function Bot() {
+
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
+    
+    await SitesControllers.adrenaline(page);
+    await SitesControllers.techpowerUp(page);
+    
+    await browser.close();
+
+}
+
+
+Bot();
+>>>>>>> ffd9cfd (Melhorando o codigo e adicioando site TechpowerUp)
