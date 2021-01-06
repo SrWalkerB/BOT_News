@@ -66,6 +66,8 @@ const techpowerUp = async (page) => {
     console.log();
 }
 
+
+
 module.exports = {
     adrenaline,
     techpowerUp
