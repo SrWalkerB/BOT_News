@@ -11,7 +11,7 @@ module.exports = {
             const result = await knexDatabase("tb_news");
 
 
-            return Response.status(200).json();
+            return Response.status(200).json(result);
 
         } catch (error) {
             
@@ -24,6 +24,14 @@ module.exports = {
     create_News: async (notice) => {
 
         try {
+
+            const seacher = await knexDatabase("tb_news").where("title", notice);
+
+
+            if(seacher != 1){
+
+                return;
+            }
             
             const insert = await knexDatabase("tb_news").insert({
 
