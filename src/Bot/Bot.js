@@ -15,14 +15,14 @@ async function Bot() {
 
 }
 
-
+const segundos = 95;
 
  setInterval(async () => {
 
     await Bot();
 
-}, 95000)  
+}, segundos * 1000)  
 
 
 
-module.exports = Bot;
+module.exports = {Bot, segundos};

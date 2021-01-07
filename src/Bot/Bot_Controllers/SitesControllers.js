@@ -15,12 +15,15 @@ const adrenaline = async (page) => {
 
         const tag_noticia = document.querySelectorAll(".post-h__content-title");
         const tag_noticia_data = document.querySelectorAll(".post-h__content-info");
+        const tag_noticia_resume = document.querySelectorAll(".post-h__content-sub");
         
 
         for(let x = 0; x < tag_noticia.length; x++){
 
             result.push({notice: tag_noticia[x].textContent,
-                         data : tag_noticia_data[x].textContent})
+                         data : tag_noticia_data[x].textContent,
+                         resume: tag_noticia_resume[x].textContent
+                        })
         }
 
         return result;
@@ -31,9 +34,9 @@ const adrenaline = async (page) => {
     
     adrenaline_news.map( async (result, index) => {
 
-        console.log(`${index} = ${result.notice}.  ${result.data}`);
+        console.log(`${index} = ${result.notice}. ${result.resume}`);
 
-        await NewsControllers.create_News(result.notice, site, site_URL);
+        await NewsControllers.create_News(result.notice, result.resume, site, site_URL);
 
     }) 
 
@@ -54,11 +57,14 @@ const techpowerUp = async (page) => {
         let result = [];
 
         const notice_tags = document.querySelectorAll(".newspost h1");
+        const resume_tags = document.querySelectorAll(".newspost .text");
 
 
         for (let x = 0; x < notice_tags.length; x++) {
 
-            result.push(notice_tags[x].textContent);
+            result.push({notice: notice_tags[x].textContent,
+                         resume: resume_tags[x].textContent
+                        });
             
         }
 
@@ -70,7 +76,7 @@ const techpowerUp = async (page) => {
     techpowerUp_notice.map(async (result, index) => {
 
         console.log(`${index} = ${result}`);
-        await NewsControllers.create_News(result, site, site_URL);
+        await NewsControllers.create_News(result.notice, result.resume, site, site_URL);
     })
 
     console.log();

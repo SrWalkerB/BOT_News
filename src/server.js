@@ -2,8 +2,8 @@ require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
-const router = require("./Routes/router");
 
+const router = require("./Routes/router");
 const Bot = require("./Bot/Bot");
 
 const app = express();
@@ -16,11 +16,9 @@ app.use(express.json());
 app.use(router);
 
 
-
-
 app.listen(PORT, () => {
 
     
     console.log(`\n-> Servidor rodando, PORT ${PORT}!`);
-    console.log(`-> A cada 90 segundos o BOT faz suas operações`);
+    console.log(`-> A cada ${Bot.segundos} segundos o BOT faz suas operações`);
 })

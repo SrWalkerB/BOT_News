@@ -6,6 +6,7 @@ exports.up = function(knex) {
 
         table.increments('id_news').notNullable();
         table.string("title").notNullable();
+        table.text("resume");
         table.string("site").notNullable();
         table.string("site_URL").notNullable();
         

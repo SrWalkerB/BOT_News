@@ -18,10 +18,10 @@ module.exports = {
                 moment.locale("pt-br")
                 const data_formatada =  moment(result.created_at).format("LLLL");
 
-
                 dados_formatados.push({
                     id_news: result.id_news,
                     title: result.title,
+                    resume: result.resume,
                     site: result.site,
                     result_day: data_formatada,
                     site_URL: result.site_URL
@@ -38,12 +38,11 @@ module.exports = {
         }
     },
     
-    create_News: async (notice, site, siteURL) => {
+    create_News: async (notice, resume, site, siteURL) => {
 
         try {
 
             const seacher = await knexDatabase("tb_news").where("title", notice);
-
 
             if(seacher != 0){
 
@@ -54,6 +53,7 @@ module.exports = {
 
                 title: notice,
                 site: site,
+                resume: resume,
                 site_URL: siteURL
             })
 
