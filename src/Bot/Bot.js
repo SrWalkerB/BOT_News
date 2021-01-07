@@ -16,12 +16,24 @@ async function Bot() {
 }
 
 const minutos = process.env.TIME;
+let teste = 0;
+
+setInterval(() => {
+
+    teste++;
+    console.log("Rodando", teste)
+
+}, 5000)
+
+
+
 
  setInterval(async () => {
 
     await Bot();
 
 }, minutos * 60000)  
+
 
 
 
