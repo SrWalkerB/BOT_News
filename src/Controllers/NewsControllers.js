@@ -9,7 +9,7 @@ module.exports = {
 
         try {
             
-            const result = await knexDatabase("tb_news").orderBy("created_at", "desc");
+            const result = await knexDatabase("tb_news").orderBy("created_at", "asc");
             
             let dados_formatados = [];
 
@@ -24,7 +24,8 @@ module.exports = {
                     resume: result.resume,
                     site: result.site,
                     result_day: data_formatada,
-                    site_URL: result.site_URL
+                    site_URL: result.site_URL,
+                    newsURL: result.news_URL
                 })
             })
 
@@ -38,7 +39,7 @@ module.exports = {
         }
     },
     
-    create_News: async (notice, resume, site, siteURL) => {
+    create_News: async (notice, resume, site, siteURL, newsURL) => {
 
         try {
 
@@ -54,6 +55,7 @@ module.exports = {
                 title: notice,
                 site: site,
                 resume: resume,
+                news_URL: newsURL,
                 site_URL: siteURL
             })
 

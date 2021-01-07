@@ -20,5 +20,5 @@ app.listen(PORT, () => {
 
     
     console.log(`\n-> Servidor rodando, PORT ${PORT}!`);
-    console.log(`-> A cada ${Bot.segundos} segundos o BOT faz suas operações`);
+    console.log(`-> A cada ${Bot.minutos} minutos o BOT faz suas operações`);
 })

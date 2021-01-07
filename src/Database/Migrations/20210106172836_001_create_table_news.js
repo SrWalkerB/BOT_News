@@ -9,6 +9,7 @@ exports.up = function(knex) {
         table.text("resume");
         table.string("site").notNullable();
         table.string("site_URL").notNullable();
+        table.text("news_URL").notNullable();
         
         table.dateTime("created_at").notNullable().defaultTo(knexDatabase.fn.now());
     })
