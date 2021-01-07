@@ -15,6 +15,7 @@ app.use(express.json());
 
 app.use(router);
 
+console.log(process.env.USER)
 
 app.listen(PORT, () => {
 

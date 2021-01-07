@@ -15,7 +15,7 @@ async function Bot() {
 
 }
 
-const minutos = 10;
+const minutos = 50;
 
  setInterval(async () => {
 
