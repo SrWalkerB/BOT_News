@@ -16,6 +16,20 @@ app.use(express.json());
 app.use(router);
 
 
+let teste = 0;
+
+setInterval(() => {
+
+    teste++;
+    console.log("Rodando", teste)
+
+}, 5000)
+
+
+console.log("si")
+
+
+
 app.listen(process.env.PORT|| PORT, () => {
 
     
