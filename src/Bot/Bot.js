@@ -26,6 +26,7 @@ setInterval(() => {
 }, 5000)
 
 
+console.log("si")
 
 
  setInterval(async () => {
