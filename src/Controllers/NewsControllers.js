@@ -1,4 +1,5 @@
 
+const moment = require("moment");
 const knexDatabase = require("../Database/Config/knexConfigDatabase");
 
 
@@ -8,10 +9,26 @@ module.exports = {
 
         try {
             
-            const result = await knexDatabase("tb_news");
+            const result = await knexDatabase("tb_news").orderBy("created_at", "desc");
+            
+            let dados_formatados = [];
+
+            result.map(result => {
+
+                moment.locale("pt-br")
+                const data_formatada =  moment(result.created_at).format("LLLL");
 
 
-            return Response.status(200).json(result);
+                dados_formatados.push({
+                    id_news: result.id_news,
+                    title: result.title,
+                    site: result.site,
+                    result_day: data_formatada,
+                    site_URL: result.site_URL
+                })
+            })
+
+            return Response.status(200).json(dados_formatados);
 
         } catch (error) {
             
