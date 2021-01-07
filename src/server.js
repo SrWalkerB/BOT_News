@@ -19,6 +19,7 @@ app.use(router);
 
 app.listen(PORT, () => {
 
-    console.log(`-> Servidor rodando, PORT ${PORT}!`);
-    console.log(`-> A cada 75 segundos o BOT faz suas operações`);
+    
+    console.log(`\n-> Servidor rodando, PORT ${PORT}!`);
+    console.log(`-> A cada 90 segundos o BOT faz suas operações`);
 })

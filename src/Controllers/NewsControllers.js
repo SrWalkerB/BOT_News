@@ -21,21 +21,23 @@ module.exports = {
         }
     },
     
-    create_News: async (notice) => {
+    create_News: async (notice, site, siteURL) => {
 
         try {
 
             const seacher = await knexDatabase("tb_news").where("title", notice);
 
 
-            if(seacher != 1){
+            if(seacher != 0){
 
                 return;
             }
             
             const insert = await knexDatabase("tb_news").insert({
 
-                title: notice
+                title: notice,
+                site: site,
+                site_URL: siteURL
             })
 
         } catch (error) {

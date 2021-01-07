@@ -26,7 +26,7 @@ setInterval(async () => {
     console.log(`Chamadas: ${number}`);
     console.log(`Fim: ${number}`)
 
-}, 60000)
+}, 90000)
 
 
 
