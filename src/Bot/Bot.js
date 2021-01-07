@@ -15,7 +15,7 @@ async function Bot() {
 
 }
 
-const minutos = 50;
+const minutos = process.env.TIME;
 
  setInterval(async () => {
 
