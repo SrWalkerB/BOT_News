@@ -45,11 +45,11 @@ module.exports = {
 
             const seacher = await knexDatabase("tb_news").where("title", notice);
 
-            /* if(seacher != 0){
+            if(seacher != 0){
 
                 return;
             }
-             */
+             
             const insert = await knexDatabase("tb_news").insert({
 
                 title: notice,
