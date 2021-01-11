@@ -16,17 +16,15 @@ app.use(express.json());
 app.use(router);
 
 
-let teste = 0;
+let count = 0;
 
 setInterval(() => {
 
-    teste++;
-    console.log("Rodando", teste)
+    count++;
+    console.log("Rodando", count)
 
-}, 5000)
+}, 1000)
 
-
-console.log("si")
 
 
 

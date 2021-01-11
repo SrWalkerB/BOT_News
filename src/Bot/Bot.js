@@ -5,7 +5,7 @@ const SitesControllers = require("../Bot/Bot_Controllers/SitesControllers");
 
 async function Bot() {
 
-    const browser = await puppeteer.launch({headless: false});
+    const browser = await puppeteer.launch({headless: true});
     const page = await browser.newPage();
     
     await SitesControllers.adrenaline(page);
@@ -15,7 +15,7 @@ async function Bot() {
 
 }
 
-const minutos = process.env.TIME;
+const minutos = 1;
 
 
  setInterval(async () => {

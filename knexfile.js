@@ -8,7 +8,7 @@ module.exports = {
     connection: {
       database: process.env.DATABASE,
       host: process.env.HOST,
-      user:     process.env.USER,
+      user:     process.env.USERDATABASE,
       password: process.env.PASSWORD
     },
 
