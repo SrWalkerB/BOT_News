@@ -88,9 +88,42 @@ const techpowerUp = async (page) => {
     console.log();
 }
 
+const techmundo = async (page) => {
+
+    const site_url = ("https://www.tecmundo.com.br/novidades");
+    const tag = "world";
+    const site = "TechMundo"
+
+    await page.goto(site_url);
+
+    const techmundo_notice = await page.evaluate(() => {
+
+        let result = [];
+        
+        const title_notice = document.querySelectorAll(".tec--card__title__link");
+
+        for(let x = 0; x < title_notice.length; x++){
+
+            result.push({title : title_notice[x].textContent ,
+                        site_URL: title_notice[x].href});
+        }
+
+        return result;
+    })
+
+
+    techmundo_notice.map(result => {
+
+        NewsControllers.create_News(result.title, "", site, tag, "https://www.tecmundo.com.br/novidades", 
+        result.site_URL);
+    })
+    
+
+}
 
 
 module.exports = {
     adrenaline,
-    techpowerUp
+    techpowerUp,
+    techmundo
 }
