@@ -23,6 +23,7 @@ module.exports = {
                     title: result.title,
                     resume: result.resume,
                     site: result.site,
+                    tags: result.tags,
                     result_day: data_formatada,
                     site_URL: result.site_URL,
                     newsURL: result.news_URL
@@ -39,7 +40,7 @@ module.exports = {
         }
     },
     
-    create_News: async (notice, resume, site, siteURL, newsURL) => {
+    create_News: async (notice, resume, site, tags, siteURL, newsURL) => {
 
         try {
 
@@ -55,6 +56,7 @@ module.exports = {
                 title: notice,
                 site: site,
                 resume: resume,
+                tags: tags,
                 news_URL: newsURL,
                 site_URL: siteURL
             })

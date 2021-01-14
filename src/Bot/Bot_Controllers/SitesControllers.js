@@ -1,10 +1,10 @@
 const NewsControllers = require("../../Controllers/NewsControllers");
-const knexDatabase = require("../../Database/Config/knexConfigDatabase");
 
 const adrenaline = async (page) => {
 
     const site_URL = "https://adrenaline.com.br/";
     const site = "adrenaline";
+    const tags = "tecnologia";
     await page.goto(site_URL);
 
 
@@ -38,7 +38,7 @@ const adrenaline = async (page) => {
 
         console.log(`${index} = ${result.news}. ${result.resume}`);
 
-        await NewsControllers.create_News(result.news, result.resume, site, site_URL, result.news_url);
+        await NewsControllers.create_News(result.news, result.resume, site, tags, site_URL, result.news_url);
 
     }) 
 
@@ -52,6 +52,8 @@ const techpowerUp = async (page) => {
 
     const site_URL = "https://www.techpowerup.com/"
     const site = "teachpowerup"
+    const tags = "tecnologia";
+
     await page.goto(site_URL)
 
     const techpowerUp_notice = await page.evaluate(() => {
@@ -80,7 +82,7 @@ const techpowerUp = async (page) => {
     techpowerUp_notice.map(async (result, index) => {
 
         console.log(`${index} = ${result}`);
-        await NewsControllers.create_News(result.notice, result.resume, site, site_URL, result.news_url);
+        await NewsControllers.create_News(result.notice, result.resume, site, tags, site_URL, result.news_url);
     })
 
     console.log();

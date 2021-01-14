@@ -8,6 +8,7 @@ exports.up = function(knex) {
         table.string("title").notNullable();
         table.text("resume");
         table.string("site").notNullable();
+        table.string("tags").notNullable();
         table.string("site_URL").notNullable();
         table.text("news_URL").notNullable();
         
