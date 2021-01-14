@@ -100,12 +100,13 @@ const techmundo = async (page) => {
 
         let result = [];
         
-        const title_notice = document.querySelectorAll(".tec--card__title__link");
+        const title_notice = document.querySelectorAll(".tec--list__item h3");
+        const hrfe_notice = document.querySelectorAll(".tec--list__item h3 a");
 
         for(let x = 0; x < title_notice.length; x++){
 
             result.push({title : title_notice[x].textContent ,
-                        site_URL: title_notice[x].href});
+                        site_URL: hrfe_notice[x].href});
         }
 
         return result;

@@ -8,15 +8,15 @@ async function Bot() {
     const browser = await puppeteer.launch({headless: true});
     const page = await browser.newPage();
     
-    //await SitesControllers.adrenaline(page);
-    //await SitesControllers.techpowerUp(page);
+    await SitesControllers.adrenaline(page);
+    await SitesControllers.techpowerUp(page);
     await SitesControllers.techmundo(page);
     
     await browser.close();
 
 }
 
-const minutos = 10;
+const minutos = 1;
 
 
  setInterval(async () => {

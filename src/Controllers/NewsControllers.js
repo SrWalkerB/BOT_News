@@ -9,7 +9,7 @@ module.exports = {
 
         try {
             
-            const result = await knexDatabase("tb_news").where("tags", "tecnologia").orderBy("id_news", "desc");
+            const result = await knexDatabase("tb_news").where("tags", "tecnologia").orderBy("id_news", "asc");
              
             let dados_formatados = [];
 
@@ -71,7 +71,7 @@ module.exports = {
 
         try {
             
-            const result = await knexDatabase("tb_news").where("tags", "world").orderBy("id_news", "desc");
+            const result = await knexDatabase("tb_news").where("tags", "world").orderBy("id_news", "asc");
             
             let dados_formatados = [];
 
