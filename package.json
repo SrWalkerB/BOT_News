@@ -12,7 +12,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "lodash": ">=4.17.21"
   },
   "dependencies": {
     "cors": "^2.8.5",
